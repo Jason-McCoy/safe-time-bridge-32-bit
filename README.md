@@ -1,2 +1,3 @@
 # safe-time-bridge-32-bit
 This is an ISO Safe Time Bridge 32 bit legacy test
+Bootable 32-bit test image for PFRG Safe Time Bridge (legacy BIOS; USB stick or CD). SHA-256: 9ece9e07…. Proven by booting this exact ISO in QEMU: 41 of 41 scenarios passed. Contains third-party software under its own licenses: Linux kernel and busybox (GPL-2.0, sources from Alpine Linux 3.22), glibc (LGPL-2.1, Ubuntu 24.04), and Debian 10 coreutils and gawk (GPL-3.0, sources at sources.debian.org). Corresponding source for these components is available on request from Pre-Failure Research Group LLC.
