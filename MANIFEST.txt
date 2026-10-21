@@ -1,9 +1,9 @@
 PFRG Safe Time Bridge 32-bit test image - manifest
-built: 2026-10-20 17:17:19 UTC from commit 920f777933eed537bf9b1791fa5c4d923800ff42
+built: 2026-10-21 02:57:09 UTC from commit 966c8d076450fd7300fed935aedbfb385b1cd929
 
 -- image parts (sha256)
 67656fdddd9a55719a92ae190003b761263953b221a9a6f5e770ca9dc04d54de  vmlinuz
-f6546fd246d1b646a6b14ef4a7626a40cc41de7b9486007195c3d266a78f954b  ./README.md
+20127ca5f8e3d5816d8e3ebcf8de3a14e724ac4a61b5ef9088ed1dfa213868ce  ./README.md
 5d3ce3492140646c2f6d540f02abae5b51edd0c39eadf7520dee471dfde61ef2  ./bin/busybox
 234a36afc80a5f20cc5b35572299a49b313c27a849d696db26d70afeed424d11  ./init
 f35065805ebb13fd8c33c60adaaa7b3079d9ddd6899b5adf2b9d407f4e201551  ./legacy/dash
@@ -16,27 +16,39 @@ b822f28125e53b2c311bcaf3b9917b08efd6a862432e5c55ab9407c347443564  ./legacy/redis
 3d80225a47738391774c643fd2481e777a46a7592e0b67c51b7eb89c9fa19cd7  ./legacy/touch
 13737c209bf848b1d31f89fb1775eac6bc411a62a8f2c4fc320c01cea8e0e015  ./lib/ld-linux.so.2
 b8bf7b34ef3fb3162d950bdb7e76070b26d1024b206473a6320d54850459a39a  ./stb/guest_cross.sh
-a6c05a1da1e09bf09618e47b99b77f1ccd5f8cf755380304ce061a1bc5c38ca4  ./stb/guest_init.sh
+625ae8cede53fb9134869341d930f0c8cc535a3e40b62ca9789e5e59b60cf81c  ./stb/guest_init.sh
 ed9addd3d8d00458562d155b8a06483fd49c43fc814c5c91db8ba22fe1db7944  ./t/child_kids
 ed9addd3d8d00458562d155b8a06483fd49c43fc814c5c91db8ba22fe1db7944  ./t/child_kids_t64
 8b2477f9f8069e45c7a8816290a1851064e8af19cf9804b8911870e6254a9a61  ./t/clock_probe
 70583ad3853bcb1176e7e968a4571feb1234be2f4d4b23bae6184972804e6059  ./t/clock_probe_t64
+dfba1d2fb091de0600a48bace2cbdce74bfd1c6844783e69b95c85a96dc2bbc2  ./t/clockcost
 852c2b411ffda50917301e3a01469896f9c6f461d3c64c21b473e0702ca55eb6  ./t/cross_probe
 b561dde439d42da2bbbf3b3234a9d2cb67d60df2cbcf4862cfd6ff1615ec1123  ./t/cross_probe_t64
 7a289e7c4ac7a3816cd3f7310714b33e3cdab64853792bfd26d7f63c936d68aa  ./t/direct_probe_i386
+f70bb19a451393ec159a129e0155ba269e92f3b82b4eb9401bb7e99b63921fec  ./t/ftscmp
+9403ded01baa2e05de6440d394384fc5214f6be71e9cda4ff3f5abdb4af6624a  ./t/ftscmp_lfs
+bda17cd88e74295a0983c353093ea660becc5b657aa5c485b64505b959e85b4d  ./t/ftscmp_t64
 f483f315d7db316f5358f5b2f1d3cbc8d936d9a2355cbc080163c306bfac84fa  ./t/legacy_app
 43b11b98e13e4803eacc39c30e7aa4e9698732e803b648e11475514618c55e2d  ./t/legacy_app_t64
 2b3336384d397bc48007d67bdbfcab15a711ad6700dc15e63a9c8bb320831f18  ./t/linux_bridge
 f2289dab7adda18414a5cb180f28a241bde294ef38d366bfc1e1a78302055aa2  ./t/mtime64
+994ca916bea25e28353eb257bfce5586d2453bd4969d26d94f76e15d63b0a48b  ./t/rawexec
 8ba9a0eaa26a6deaf43bda9bd7b88384944f35d08e48786daabe37b14fd6678f  ./t/settime_probe_t64
 69195522b9053beb04d4954a32a0532604cdd6bf02acc5d4c079baa7ccf7e35e  ./t/shift_migrate
-b735cb6a6fd3d59c2902275847ab8361b3a7b5e136d438ad894512cad06bdcec  ./t/shim2.so
-35fdbe11b69c0c88752259c43cc84bdc5b5603a2faa2d0c8eebbbc74eefd2728  ./t/shim3.so
+2fac043a85faa32fdb30b206c2d5d4fd3f6c158dc71c6bfec56442d4e8f543c0  ./t/shim2.so
+4099559a41ead5424c3a702d342b13913d36fde5c582255a5d96e31895e6fcd2  ./t/shim3.so
+b0e4307cdda2b4034f8ebc438a6681f0ff3ad2db09a926b425405229697b02ab  ./t/statleak
+c0f10181d576faecdb97869adb62ea07ec210f99610c630f168193ce44187d95  ./t/statleak_lfs
+b1c8b34eeaea4bcc2330c3b78894cee751135a9bf39428225e0e878c4cb5c595  ./t/statleak_t64
 d8aa6e8e266885deb761e31df690feac2f6c35dead38ca57111c0a4a128d07aa  ./t/statone
 103bf57df9a08471d546764e07cde7ab550f42e5ea9cc274a82824f61f013c52  ./t/stb_ask
+f8ce3d5cc3969adbdb3b79a1735c858ebad6db3c28633bbe6ff2bc36a7598adb  ./t/tellt
 009d2fff2bb8bca167f923876a3ee1e635fca4f7a9a368db114146bd202764bb  ./t/time_loop
 b5e559ab2de4b8cb8312c90b47bdec4d84efd5b03d04d025606467a4ccb4fe8a  ./t/wait_probe
 57e3719e85a8cccd6971166088028dbc0481ed460c372d71e56f627a3e97270a  ./t/wait_probe_t64
+111c542168354a36c7c22499b891748f2549dd637e159fa5df7d496cfd0f24de  ./t/walkcmp
+2c5935c90fb9e332e4c7e8e4dc563a6ef3c94516bad18b8a96555ab3380e6507  ./t/walkcmp_lfs
+73114d66b29eed130abdd5dfeb92e0c4c811261cb69c1ac2eb38e83a008df34d  ./t/walkcmp_t64
 13737c209bf848b1d31f89fb1775eac6bc411a62a8f2c4fc320c01cea8e0e015  ./usr/lib32/ld-linux.so.2
 c1cae9e02ef60c0264157814c09d3924d314113058eb74d0264fa4e4e2d338dc  ./usr/lib32/libatomic.so.1
 50deb7759edba42249e5e9b426f7944d003825a758aa1727802508ba3ed10211  ./usr/lib32/libc.so.6
@@ -64,23 +76,23 @@ i386 loader: /lib/ld-linux.so.2
   libc.so.6 <- /usr/lib32/libc.so.6
   libgcc_s.so.1 <- /usr/lib32/libgcc_s.so.1
   ld-linux.so.2 <- /usr/lib32/ld-linux.so.2
-  libsigsegv.so.2 <- /tmp/tmp.9uyiGpZa4z/deb/root/usr/lib/i386-linux-gnu/libsigsegv.so.2
-  libreadline.so.7 <- /tmp/tmp.9uyiGpZa4z/deb/root/lib/i386-linux-gnu/libreadline.so.7
-  libmpfr.so.6 <- /tmp/tmp.9uyiGpZa4z/deb/root/usr/lib/i386-linux-gnu/libmpfr.so.6
-  libgmp.so.10 <- /tmp/tmp.9uyiGpZa4z/deb/root/usr/lib/i386-linux-gnu/libgmp.so.10
+  libsigsegv.so.2 <- /tmp/tmp.QxPznznUao/deb/root/usr/lib/i386-linux-gnu/libsigsegv.so.2
+  libreadline.so.7 <- /tmp/tmp.QxPznznUao/deb/root/lib/i386-linux-gnu/libreadline.so.7
+  libmpfr.so.6 <- /tmp/tmp.QxPznznUao/deb/root/usr/lib/i386-linux-gnu/libmpfr.so.6
+  libgmp.so.10 <- /tmp/tmp.QxPznznUao/deb/root/usr/lib/i386-linux-gnu/libgmp.so.10
   libdl.so.2 <- /usr/lib32/libdl.so.2
   libm.so.6 <- /usr/lib32/libm.so.6
-  libselinux.so.1 <- /tmp/tmp.9uyiGpZa4z/deb/root/lib/i386-linux-gnu/libselinux.so.1
+  libselinux.so.1 <- /tmp/tmp.QxPznznUao/deb/root/lib/i386-linux-gnu/libselinux.so.1
   libatomic.so.1 <- /usr/lib32/libatomic.so.1
-  liblua5.1-cjson.so.0 <- /tmp/tmp.9uyiGpZa4z/deb/root/usr/lib/i386-linux-gnu/liblua5.1-cjson.so.0
-  liblua5.1-bitop.so.0 <- /tmp/tmp.9uyiGpZa4z/deb/root/usr/lib/i386-linux-gnu/liblua5.1-bitop.so.0
-  liblua5.1.so.0 <- /tmp/tmp.9uyiGpZa4z/deb/root/usr/lib/i386-linux-gnu/liblua5.1.so.0
-  libjemalloc.so.2 <- /tmp/tmp.9uyiGpZa4z/deb/root/usr/lib/i386-linux-gnu/libjemalloc.so.2
+  liblua5.1-cjson.so.0 <- /tmp/tmp.QxPznznUao/deb/root/usr/lib/i386-linux-gnu/liblua5.1-cjson.so.0
+  liblua5.1-bitop.so.0 <- /tmp/tmp.QxPznznUao/deb/root/usr/lib/i386-linux-gnu/liblua5.1-bitop.so.0
+  liblua5.1.so.0 <- /tmp/tmp.QxPznznUao/deb/root/usr/lib/i386-linux-gnu/liblua5.1.so.0
+  libjemalloc.so.2 <- /tmp/tmp.QxPznznUao/deb/root/usr/lib/i386-linux-gnu/libjemalloc.so.2
   librt.so.1 <- /usr/lib32/librt.so.1
-  libhiredis.so.0.14 <- /tmp/tmp.9uyiGpZa4z/deb/root/usr/lib/i386-linux-gnu/libhiredis.so.0.14
+  libhiredis.so.0.14 <- /tmp/tmp.QxPznznUao/deb/root/usr/lib/i386-linux-gnu/libhiredis.so.0.14
   libpthread.so.0 <- /usr/lib32/libpthread.so.0
-  libtinfo.so.6 <- /tmp/tmp.9uyiGpZa4z/deb/root/lib/i386-linux-gnu/libtinfo.so.6
-  libpcre.so.3 <- /tmp/tmp.9uyiGpZa4z/deb/root/lib/i386-linux-gnu/libpcre.so.3
+  libtinfo.so.6 <- /tmp/tmp.QxPznznUao/deb/root/lib/i386-linux-gnu/libtinfo.so.6
+  libpcre.so.3 <- /tmp/tmp.QxPznznUao/deb/root/lib/i386-linux-gnu/libpcre.so.3
   libstdc++.so.6 <- /usr/lib32/libstdc++.so.6
   libgcc_s.so.1 <- /usr/lib32/libgcc_s.so.1
 
@@ -105,18 +117,18 @@ lua-cjson 2.1.0+dfsg-2.1 sha256 fd995503f7aa00c5e00a042b2710ecd2c5b46cc5e6a6910a
 redis-server 5:5.0.14-1+deb10u2 sha256 be99219f1dc00ed4421be755a24cd12546dcd77ec8e04cca9e619bc832d8e83b (matches Debian index)
 redis-tools 5:5.0.14-1+deb10u2 sha256 ca01cd3fcf43539076f324b6ce030a80f6ec913ed991d304bc565490ecfdfecb (matches Debian index)
 (index fetched over HTTPS from archive.debian.org; its GPG signature was not checked)
-/tmp/tmp.9uyiGpZa4z/root/legacy/dash:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=438df3f6419a715026b69d4d99b79e9fd64f8b68, stripped
-/tmp/tmp.9uyiGpZa4z/root/legacy/date:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=2682dd3690b9b491a484f39e79b0ce1bfdb38b08, stripped
-/tmp/tmp.9uyiGpZa4z/root/legacy/gawk:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=542f08d1ff40bca55fe60f84d761da0ebd26b3b7, stripped
-/tmp/tmp.9uyiGpZa4z/root/legacy/ls:           ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=728a8169184c77ded3f193547fec36a7a7186b08, stripped
-/tmp/tmp.9uyiGpZa4z/root/legacy/redis-cli:    ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=8eaabd22f6fc08af7e851ee43ee6a664a35f5283, stripped
-/tmp/tmp.9uyiGpZa4z/root/legacy/redis-server: ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=aceafae835d436f28bb85ddc585f1b1b08b4b403, stripped
-/tmp/tmp.9uyiGpZa4z/root/legacy/stat:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=6c56d90dfed608547997dfe8126e07a06ad45f0b, stripped
-/tmp/tmp.9uyiGpZa4z/root/legacy/touch:        ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=991eeff20b9b9aa14b8203d6c12b27560f245240, stripped
+/tmp/tmp.QxPznznUao/root/legacy/dash:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=438df3f6419a715026b69d4d99b79e9fd64f8b68, stripped
+/tmp/tmp.QxPznznUao/root/legacy/date:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=2682dd3690b9b491a484f39e79b0ce1bfdb38b08, stripped
+/tmp/tmp.QxPznznUao/root/legacy/gawk:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=542f08d1ff40bca55fe60f84d761da0ebd26b3b7, stripped
+/tmp/tmp.QxPznznUao/root/legacy/ls:           ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=728a8169184c77ded3f193547fec36a7a7186b08, stripped
+/tmp/tmp.QxPznznUao/root/legacy/redis-cli:    ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=8eaabd22f6fc08af7e851ee43ee6a664a35f5283, stripped
+/tmp/tmp.QxPznznUao/root/legacy/redis-server: ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=aceafae835d436f28bb85ddc585f1b1b08b4b403, stripped
+/tmp/tmp.QxPznznUao/root/legacy/stat:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=6c56d90dfed608547997dfe8126e07a06ad45f0b, stripped
+/tmp/tmp.QxPznznUao/root/legacy/touch:        ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=991eeff20b9b9aa14b8203d6c12b27560f245240, stripped
 
 -- cargo-test-summary.txt
-test result: ok. 41 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
-test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.03s
+test result: ok. 41 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.04s
 test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
