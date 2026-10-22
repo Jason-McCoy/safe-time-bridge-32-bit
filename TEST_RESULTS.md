@@ -1,14 +1,14 @@
-# Test results: bootable image, October 20, 2026 (evening build)
+# Test results: bootable image, October 22, 2026 build
 
 This page records what the published image was tested for and the result, so you can check it without access to the private test lab. Don't take our word for it: the scenarios below are what you are invited to repeat on real 32-bit hardware.
 
 | | |
 |:--|:--|
-| Image | `pfrg-stb-i386-test.iso` (26,798,080 bytes) |
-| SHA-256 | `b0a0bea0bba49eba4afbbca3d95340bf32c21c425ec4f4cb42d48aa4ebb07509` |
-| Built from | lab commit `966c8d0` (GitHub Actions, October 21, 2026 02:57 UTC) |
-| Result | **84 of 84 scenarios passed**, 0 failed |
-| Machine | QEMU, i686 32-bit kernel (Alpine Linux 6.12 LTS), booted with `vdso32=0`, guest clock set past 2038 in memory |
+| Image | `pfrg-stb-i386-test.iso` (27,385,856 bytes) |
+| SHA-256 | `66b932730ab26ec1a704f6057537eb3309f24a197537a4176e99e086f50c524b` |
+| Built from | lab commit `411e5e9` (GitHub Actions, October 22, 2026 04:24 UTC) |
+| Result | **107 of 107 scenarios passed**, 0 failed |
+| Machine | QEMU, i686 32-bit kernel (Alpine Linux 6.12.114 LTS), booted with `vdso32=0`, guest clock set past 2038 in memory |
 
 ## How it was tested
 
@@ -123,6 +123,43 @@ Program time is the true time minus 28 years: on the test clock of 2040-02-15, p
 | H11 | the same moment on 56 years runs: 2010-06-01 |
 | H12 | a damaged registry file: the bridge refuses to start rather than forget processes |
 
+## Longer shifts: the 56-year window edge, the 84-year shift and the 2100 calendar limit: 10 of 10 passed
+
+The bridge's test clock supplies the true time for each case. Finding STB-CAL-001: the 56-year shift's window ends at 2094-01-19 03:14:07 UTC, not 2100; an 84-year shift is needed to reach 2098-2100. Y5 first failed (2100-03-01 reached the program as 2016-02-29, exit 0); the helpers now refuse any true time past 2100-02-28 on a non-zero shift.
+
+| ID | Result |
+|:--|:--|
+| Y1 | 56-year shift, 7 s before its window ends: program time 2038-01-19 Tue |
+| Y2 | 56-year shift, 1 s past its window (2094-01-19 03:14:08): full stop, no date reaches the program |
+| Y2b | the same moment on an 84-year shift runs: 2010-01-19 Tue |
+| Y3 | 84-year shift in 2098: program time 2014-06-01 Sun, same weekday |
+| Y3b | 84-year shift in 2098: a legacy program's +30-day date math works |
+| Y4 | 84-year shift on the last calendar-exact day, 2100-02-28: program time 2016-02-28 Sun |
+| Y5 | past the calendar limit (2100-03-01): full stop, no date reaches the program |
+| Y6 | a file dated 2100-02-28 12:00 UTC reads 1456660800, 2016-02-28 12:00 UTC (84 years) |
+| Y7 | a file dated 2100-03-01: full stop |
+| Y8 | the program sets 2016-02-29 (true 2100-03-01): full stop; that date is never written |
+
+## The fail-closed launcher (stb_run and stb_guard_exec): 13 of 13 passed
+
+Why: on CentOS 4.8 the system loader printed "cannot be preloaded: ignored" and ran a program unhelped with exit 0. stb_run now refuses unless the helper matches the program's architecture and the system's own loader can load it, then starts the program through stb_guard_exec, which installs the guard's kernel filter first: if the helper still fails to load, the kernel stops the program at its first clock read.
+
+| ID | Result |
+|:--|:--|
+| Z1 | valid helper through stb_run: 2019 date shows program time 2012-02-15 Wed |
+| Z1b | valid helper through stb_run: +30-day date math works |
+| Z1c | shim 3 through stb_run with a 64-bit-time program |
+| Z2 | missing helper: refused (126), the program never started |
+| Z3 | helper the loader cannot load (missing library): refused by the system loader's check, program never started |
+| Z3b | an x86-64 helper for an i386 program: refused |
+| Z3c | a statically linked program: refused |
+| Z4a | control (CentOS 4 behaviour): the loader ignores a wrong-architecture helper and the program runs unhelped, exit 0, wrong date |
+| Z4b | the same ignored helper under the guard: the kernel stops the program at its first clock read (SIGSYS), no date |
+| Z4c | no helper at all under the guard: stopped at its first clock read, no date |
+| Z4d | a missing helper file under the guard: the legacy program is stopped before any date math |
+| Z4e | a helper missing one of its own libraries: the loader itself stops the program (127) before it runs; the launcher (static) is unaffected |
+| Z5 | KNOWN GAP, recorded: with no helper, the guard does not stop a 64-bit-time program reading a file's date; it read the true post-2038 time. The guard covers clock reads, not file dates (#2 part B) |
+
 ## Live crossing of 2038-01-19 03:14:07 UTC: 9 of 9 passed
 
 | ID | Result |
@@ -139,7 +176,9 @@ Program time is the true time minus 28 years: on the test clock of 2040-02-15, p
 
 ## Known limits (stated, not hidden)
 
-- A program's own raw `stat`-family system calls still return true file dates (not yet closed).
+- A program's own raw `stat`-family system calls still return true file dates (not yet closed). The launcher's guard does not cover file-date reads either (Z5).
+- The launcher and the helpers need Linux 5.1 or later, seccomp filters and no vDSO; on an older kernel (for example CentOS 4's 2.6.9) the launcher refuses to start the program rather than run it unprotected.
+- The 84-year shift is the only one that reaches 2098-2100; nothing passes 2100-02-28.
 - A child started by a raw `execve` that discards the helper's settings is stopped, not helped (G-Rc).
 - Data a program stores in its own binary formats is not translated (H9 records this for Redis's save file).
 - These results are evidence for the emulated machine above. Reports from real 32-bit PCs are welcome: please include the CPU, the boot menu choice, and the full results screen.
