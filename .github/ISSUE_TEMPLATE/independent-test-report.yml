@@ -1,0 +1,67 @@
+---
+name: Independent Test Report
+description: Report an independent Safe Time Bridge reproduction, failure, or unexpected observation
+title: "Independent Test Report — "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: "Report what you actually observed. Successful reproductions, failures, and negative results are all welcome. Do not include secrets or sensitive data."
+  - type: textarea
+    id: environment
+    attributes:
+      label: Test environment
+      description: "Hardware or VM, OS/kernel, architecture, ISO version, and SHA-256 verification result."
+      placeholder: "Hardware/VM:\nOS/kernel:\nArchitecture:\nISO version:\nSHA-256 verification:"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Test performed and reproduction steps
+      description: "Describe the scenario and commands used."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: "Attach relevant logs, screenshots, timestamps, or errors, with sensitive data removed."
+    validations:
+      required: false
+  - type: textarea
+    id: reproducibility
+    attributes:
+      label: Reproducibility
+      description: "Did the same result occur when repeated?"
+    validations:
+      required: false
+  - type: textarea
+    id: observations
+    attributes:
+      label: Additional observations
+    validations:
+      required: false
+  - type: dropdown
+    id: independent
+    attributes:
+      label: Independent verification statement
+      description: "Was this test performed independently of the PFRG development team?"
+      options:
+        - "Yes — independently performed"
+        - "No — PFRG development team"
+        - "Other / prefer to explain"
+    validations:
+      required: true
