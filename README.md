@@ -21,7 +21,7 @@ The October 23, 2026 build reported **122 of 122 tests passing** in project test
 
 Download the ISO, verify its checksum, and attempt to reproduce the published results in an isolated test environment. We particularly welcome investigations involving time-boundary failures, process supervision, clock access, compatibility with older applications, and unexpected system behavior.
 
-Successful reproductions, negative results, and previously unknown failures are equally valuable. [Submit an independent test report](../../issues/new?template=independent-test-report.md) with the environment, steps, expected and observed behavior, and supporting evidence. Remove sensitive information before submitting logs.
+Successful reproductions, negative results, and previously unknown failures are equally valuable. [Submit an independent test report](../../issues/new?template=independent-test-report.yml) with the environment, steps, expected and observed behavior, and supporting evidence. Remove sensitive information before submitting logs.
 
 **No endorsement is requested. Independent evidence is the objective.**
 
